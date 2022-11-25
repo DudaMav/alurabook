@@ -1,0 +1,33 @@
+@import url("styles/header.css");
+@import url(./styles/banner.css);
+@import url(./styles/carrossel.css);
+@import url(./styles/topicos.css);
+@import url(./styles/contatos.css);
+@import url(./styles/rodape.css);
+/* media query que importa o header com o styles.css */
+
+:root {
+    --cor-de-fundo: #EBECEE;
+    --cor-branco: #FFFFFF;
+    --cor-laranja: #EB9B00;
+    --cor-azul: linear-gradient(97.54deg, #002F52 35.49%, #326589 165.37%);
+    --cor-azul-normal: #002F52;
+    --cor-preto: #000000D9;
+    --cor-cinza:#474646;
+    --cor-cinza-dois: #858585;
+    --fonte-principal: "Poppins";
+    --fonte-secundaria: "Josefin Sans";
+}
+
+body {
+    background-color: var(--cor-de-fundo);
+    font-family: var(--fonte-principal);
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.container {
+    /* transformando cada um dos containers em uma mesma coisa para centralizar os elementos dentro, pois eles serão flex-items do flex container, que é a div containe */
+    display: flex;
+    align-items: center;
+}

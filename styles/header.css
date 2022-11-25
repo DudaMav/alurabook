@@ -1,0 +1,159 @@
+/* menu do header feito com span, já que ele deve mudar de cor quando for ativado */
+
+.cabecalho__menu {
+    width: 24px;
+    height: 24px;
+    background-image: url("./Menu.svg");
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.cabecalho {
+    background-color: var(--cor-branco);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* o display flex transformou o cabeçalho em flex container e as divs em flex-items, e o justify content alinhou as divs */
+    position: relative;
+}
+
+.container__imagem {
+    padding: 1em;
+}
+
+.lista-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    width: 60vw;
+}
+
+.container__botao:checked ~ .lista-menu {
+/* checked é uma pseudo classe, ele identifica se está preenchido o imput checkbox */
+/*  o ~ é um combinador css que procura o outro elemento em seguida daquele que foi chamado antes */
+    display: block;
+}
+
+/* o > procura algo que está dentro de um elemento */
+.container__botao:checked ~ .container__rotulo > .cabecalho__menu {
+    background-image: url(../Imagens/Menu\ Aberto\ \(1\).svg);
+}
+
+.container__botao:checked ~ .container__rotulo {
+    background: var(--cor-azul);
+}
+
+.container__botao {
+    display: none;
+}
+
+.lista-menu__titulo,
+.lista-menu__item {
+    padding: 1em;
+    background-color: var(--cor-branco);
+}
+
+.lista-menu__titulo {
+    color: var(--cor-laranja);
+    font-weight: 700;
+} 
+
+.lista-menu__link {
+    background: var(--cor-azul);
+    -webkit-background-clip: text;
+    /* aplicando cor de background apenas onde tem texto */
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-transform: uppercase;
+}
+
+.container__titulo {
+    display: none;
+}
+
+.container__texto {
+    display: none;
+}
+
+.opcoes {
+    display: none;
+}
+
+.opcoes__menu:checked ~ .opcoes__rotulo > .opcoes__item {
+    background: var(--cor-azul);
+    color: var(--cor-branco);
+}
+
+.opcoes__item {
+    padding: 1em 2em;
+}
+
+.lista-menu__item:hover {
+    background: var(--cor-azul);
+}
+
+/* webkit é um motor de renderização utilizado em navegadores web para renderizar páginas. */
+.lista-menu__item:hover > .lista-menu__link {
+    -webkit-text-fill-color: var(--cor-branco);
+    text-decoration: none;
+}
+
+/* media query para adicionar estilos quando chega em determinado tamanho de tela (1024px) */
+/* min-width: para mobile-first / max-width: desktop-first */
+@media screen and (min-width: 1024px) {
+    .container__titulo, .container__titulo--negrito {
+        font-family: var(--fonte-secundaria);
+        font-size: 30px;
+    }
+    .container__titulo {
+        font-weight: 400;
+        display: block;
+    }
+    .container__titulo--negrito {
+        font-weight: 700;
+    }
+    .opcoes {
+        display: flex;
+    }
+    .opcoes__item {
+        padding: 2em 1em;
+        text-transform: uppercase;
+    }
+    .opcoes__link {
+        text-decoration: none;
+        color: var(--cor-preto);
+    }
+    .container__fav {
+        display: none;
+    }
+    .cabecalho__menu {
+        display: none;
+    }
+    .opcoes__menu:checked~.lista-menu {
+        display: block;
+        width: auto;
+    }
+    .opcoes__menu {
+        display: none;
+    }
+}
+
+/* media query para adicionar estilos quando chega em determinado tamanho de tela (1728px) */
+@media screen and (min-width:1728px){
+    .container__link {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: var(--cor-preto);
+    }
+    .cabecalho {
+        padding: 0 2em;
+    }
+    .opcoes {
+        margin-right: auto;
+    }
+    .container__texto {
+        display: block;
+    }
+}
